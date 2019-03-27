@@ -624,7 +624,7 @@ WFLAGS += -DRT_BIG_ENDIAN -DINF_TWINPASS
 endif
 
 ifeq ($(PLATFORM),INF_DANUBE)
-ifneq (,$(findstring 2.4,$(LINUX_SRC)))
+ifneq (,$(findstring 2.4.,$(LINUX_SRC)))
 # Linux 2.4
 WFLAGS += -DINF_DANUBE -DRT_BIG_ENDIAN
 else
@@ -738,7 +738,7 @@ export RT_WIFI_CFLAGS
 endif
 
 ifeq ($(PLATFORM),PC)
-    ifneq (,$(findstring 2.4,$(LINUX_SRC)))
+    ifneq (,$(findstring 2.4.,$(LINUX_SRC)))
 	# Linux 2.4
 	CFLAGS := -D__KERNEL__ -I$(LINUX_SRC)/include -I$(RT28xx_DIR)/include -O2 -fomit-frame-pointer -fno-strict-aliasing -fno-common -pipe -mpreferred-stack-boundary=2 -march=i686 -DMODULE -DMODVERSIONS -include $(LINUX_SRC)/include/linux/modversions.h $(WFLAGS)
 	export CFLAGS
